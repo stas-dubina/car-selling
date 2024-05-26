@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            idTextBox = new TextBox();
+            idLabel = new Label();
             fuelLabel = new Label();
             fuelTypeComboBox = new ComboBox();
             yearLabel = new Label();
@@ -36,18 +38,17 @@
             yearTextBox = new NumericUpDown();
             updateBtn = new Button();
             nameTextBox = new TextBox();
-            idLabel = new Label();
-            IdTextBox = new TextBox();
-            dataGridView1 = new DataGridView();
+            operationsGridView = new DataGridView();
+            addOperationBtn = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)yearTextBox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)operationsGridView).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(IdTextBox);
+            panel1.Controls.Add(idTextBox);
             panel1.Controls.Add(idLabel);
             panel1.Controls.Add(fuelLabel);
             panel1.Controls.Add(fuelTypeComboBox);
@@ -60,6 +61,23 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(306, 181);
             panel1.TabIndex = 2;
+            // 
+            // idTextBox
+            // 
+            idTextBox.Location = new Point(70, 7);
+            idTextBox.Name = "idTextBox";
+            idTextBox.ReadOnly = true;
+            idTextBox.Size = new Size(90, 23);
+            idTextBox.TabIndex = 9;
+            // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Location = new Point(37, 10);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new Size(18, 15);
+            idLabel.TabIndex = 8;
+            idLabel.Text = "ID";
             // 
             // fuelLabel
             // 
@@ -123,48 +141,42 @@
             nameTextBox.Size = new Size(200, 23);
             nameTextBox.TabIndex = 0;
             // 
-            // idLabel
+            // operationsGridView
             // 
-            idLabel.AutoSize = true;
-            idLabel.Location = new Point(37, 10);
-            idLabel.Name = "idLabel";
-            idLabel.Size = new Size(18, 15);
-            idLabel.TabIndex = 8;
-            idLabel.Text = "ID";
+            operationsGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            operationsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            operationsGridView.Location = new Point(12, 216);
+            operationsGridView.MultiSelect = false;
+            operationsGridView.Name = "operationsGridView";
+            operationsGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            operationsGridView.Size = new Size(776, 222);
+            operationsGridView.TabIndex = 3;
+            operationsGridView.CellClick += operationsGridView_CellClick;
             // 
-            // IdTextBox
+            // addOperationBtn
             // 
-            IdTextBox.Location = new Point(70, 7);
-            IdTextBox.Name = "IdTextBox";
-            IdTextBox.ReadOnly = true;
-            IdTextBox.Size = new Size(90, 23);
-            IdTextBox.TabIndex = 9;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 216);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(776, 222);
-            dataGridView1.TabIndex = 3;
+            addOperationBtn.Location = new Point(713, 187);
+            addOperationBtn.Name = "addOperationBtn";
+            addOperationBtn.Size = new Size(75, 23);
+            addOperationBtn.TabIndex = 10;
+            addOperationBtn.Text = "Add";
+            addOperationBtn.UseVisualStyleBackColor = true;
+            addOperationBtn.Click += addOperationBtn_Click;
             // 
             // CarDetailsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
+            Controls.Add(addOperationBtn);
+            Controls.Add(operationsGridView);
             Controls.Add(panel1);
             Name = "CarDetailsForm";
             Text = "CarDetailsForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)yearTextBox).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)operationsGridView).EndInit();
             ResumeLayout(false);
         }
 
@@ -179,7 +191,8 @@
         private Button updateBtn;
         private TextBox nameTextBox;
         private Label idLabel;
-        private TextBox IdTextBox;
-        private DataGridView dataGridView1;
+        private TextBox idTextBox;
+        private DataGridView operationsGridView;
+        private Button addOperationBtn;
     }
 }

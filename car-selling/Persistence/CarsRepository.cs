@@ -39,4 +39,9 @@ public class CarsRepository : ICarRespository
     {
         return this._cars;
     }
+
+    public void Save(Car car)
+    {
+
+    }
 }

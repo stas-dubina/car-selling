@@ -13,8 +13,6 @@ namespace CarDealer.Presentation
 {
     public partial class MainForm : Form
     {
-        //private ICarRepository _carsRepository = new ICarRepository();
-
         private ICarRespository _carRepository;
 
         public MainForm(ICarRespository carRepository)
@@ -34,11 +32,6 @@ namespace CarDealer.Presentation
             fuelTypeSearchBox.DataSource = fuelTypes;
         }
 
-        private void nameSearchBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void searchBtn_Click(object sender, EventArgs e)
         {
             var fuelType = fuelTypeSearchBox.SelectedIndex == 0 ? null : (FuelType?)Enum.Parse(typeof(FuelType), (string)fuelTypeSearchBox.SelectedItem);
@@ -46,17 +39,12 @@ namespace CarDealer.Presentation
             resultGridView.DataSource = filteredResult;
         }
 
-        private void resultGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void resultGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var allCars = (List<Car>)resultGridView.DataSource;
             var selectedCar = allCars[e.RowIndex];
 
-            var carDetails = new CarDetailsForm(selectedCar);
+            var carDetails = new CarDetailsForm(_carRepository, selectedCar);
             carDetails.ShowDialog();
         }
     }

@@ -59,7 +59,6 @@
             resultGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             resultGridView.Size = new Size(800, 351);
             resultGridView.TabIndex = 0;
-            resultGridView.CellContentClick += resultGridView_CellContentClick;
             resultGridView.CellDoubleClick += resultGridView_CellDoubleClick;
             // 
             // panel1
@@ -150,7 +149,6 @@
             nameSearchBox.PlaceholderText = "Type text";
             nameSearchBox.Size = new Size(200, 23);
             nameSearchBox.TabIndex = 0;
-            nameSearchBox.TextChanged += nameSearchBox_TextChanged;
             // 
             // addBtn
             // 
