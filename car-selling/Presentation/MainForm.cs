@@ -32,6 +32,11 @@ namespace CarDealer.Presentation
             fuelTypeSearchBox.DataSource = fuelTypes;
         }
 
+        private void refreshResultGridView() {
+            resultGridView.DataSource = null;
+            resultGridView.DataSource = _carRepository.GetAll();
+        }
+
         private void searchBtn_Click(object sender, EventArgs e)
         {
             var fuelType = fuelTypeSearchBox.SelectedIndex == 0 ? null : (FuelType?)Enum.Parse(typeof(FuelType), (string)fuelTypeSearchBox.SelectedItem);
@@ -46,6 +51,8 @@ namespace CarDealer.Presentation
 
             var carDetails = new CarDetailsForm(_carRepository, selectedCar);
             carDetails.ShowDialog();
+
+            refreshResultGridView();
         }
     }
 }

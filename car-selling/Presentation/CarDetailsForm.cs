@@ -74,7 +74,14 @@ namespace CarDealer.Presentation
         private void addOperationBtn_Click(object sender, EventArgs e)
         {
             var editDialog = new EditOperationForm();
-            editDialog.ShowDialog();
+            var dialogResult = editDialog.ShowDialog();
+            if (dialogResult == DialogResult.OK) 
+            {
+                var operation = editDialog.Result;
+                _car.Tasks.Add(operation);
+                _carRepository.Save(_car);
+                updateOperationGridView();
+            }
         }
     }
 }

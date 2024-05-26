@@ -99,8 +99,11 @@
             // 
             // amountTextBox
             // 
+            amountTextBox.DecimalPlaces = 2;
+            amountTextBox.Increment = new decimal(new int[] { 100, 0, 0, 0 });
             amountTextBox.Location = new Point(103, 110);
             amountTextBox.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
+            amountTextBox.Minimum = new decimal(new int[] { 1000000, 0, 0, int.MinValue });
             amountTextBox.Name = "amountTextBox";
             amountTextBox.Size = new Size(90, 23);
             amountTextBox.TabIndex = 9;
