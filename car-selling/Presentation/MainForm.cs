@@ -46,5 +46,18 @@ namespace CarDealer.Presentation
             resultGridView.DataSource = filteredResult;
         }
 
+        private void resultGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void resultGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var allCars = (List<Car>)resultGridView.DataSource;
+            var selectedCar = allCars[e.RowIndex];
+
+            var carDetails = new CarDetailsForm(selectedCar);
+            carDetails.ShowDialog();
+        }
     }
 }
