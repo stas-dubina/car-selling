@@ -3,9 +3,9 @@
 public class Car
 {
     public int Id { get; set; }
-    public string Name { get; set; }
+
+    public CarModel Model { get; set; }
     public int Year { get; set; }
-    public FuelType Type { get; set; }
     public string Description { get; set; }
     public List<Operation> Tasks { get; set; }
     public decimal Balance
@@ -16,12 +16,13 @@ public class Car
         }
     }
 
-    public Car(int id, string name, int year, FuelType type, string description, List<Operation> tasks)
+    public Car() { }
+
+    public Car(int id, CarModel model, int year, string description, List<Operation> tasks)
     {
         Id = id;
-        Name = name;
+        Model = model;
         Year = year;
-        Type = type;
         Description = description;
         Tasks = tasks;
     }

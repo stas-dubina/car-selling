@@ -138,7 +138,7 @@
             nameTextBox.Location = new Point(70, 36);
             nameTextBox.Name = "nameTextBox";
             nameTextBox.PlaceholderText = "Type text";
-            nameTextBox.Size = new Size(200, 23);
+            nameTextBox.Size = new Size(90, 23);
             nameTextBox.TabIndex = 0;
             // 
             // operationsGridView
@@ -148,6 +148,7 @@
             operationsGridView.Location = new Point(12, 216);
             operationsGridView.MultiSelect = false;
             operationsGridView.Name = "operationsGridView";
+            operationsGridView.ReadOnly = true;
             operationsGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             operationsGridView.Size = new Size(776, 222);
             operationsGridView.TabIndex = 3;
@@ -172,7 +173,7 @@
             Controls.Add(operationsGridView);
             Controls.Add(panel1);
             Name = "CarDetailsForm";
-            Text = "CarDetailsForm";
+            Text = "Car Info";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)yearTextBox).EndInit();

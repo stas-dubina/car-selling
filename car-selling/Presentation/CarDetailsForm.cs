@@ -26,11 +26,11 @@ namespace CarDealer.Presentation
             // init form
             InitializeComponent();
             this.idTextBox.Text = car.Id.ToString();
-            this.nameTextBox.Text = car.Name;
+            this.nameTextBox.Text = car.Model.Brand + " " + car.Model.Model ;
             this.yearTextBox.Text = car.Year.ToString();
 
             this.fuelTypeComboBox.DataSource = Enum.GetNames(typeof(FuelType));
-            this.fuelTypeComboBox.SelectedIndex = (int)car.Type;
+            this.fuelTypeComboBox.SelectedIndex = (int)car.Model.FuelType;
 
             updateOperationGridView();
             _carRepository = carRepository;
