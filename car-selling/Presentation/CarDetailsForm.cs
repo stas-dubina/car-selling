@@ -73,7 +73,8 @@ namespace CarDealer.Presentation
 
         private void addOperationBtn_Click(object sender, EventArgs e)
         {
-
+            var editDialog = new EditOperationForm();
+            editDialog.ShowDialog();
         }
     }
 }
