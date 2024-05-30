@@ -22,10 +22,16 @@ namespace CarDealer
 
             if (db.Cars.Count() == 0)
             {
+                var brand = new CarBrand()
+                {
+                    Id = 1,
+                    Name = "Toyota"
+                };
+
                 var model = new CarModel()
                 {
                     Id = 1,
-                    Brand = "Toyota",
+                    Brand = brand,
                     Model = "Corolla",
                     Power = 100,
                     FuelType = FuelType.Gas,

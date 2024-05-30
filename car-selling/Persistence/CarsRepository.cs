@@ -8,10 +8,16 @@ public class CarsRepository : ICarRespository
 
     public CarsRepository()
     {
+        var brand = new CarBrand()
+        {
+            Id = 1,
+            Name = "Toyota"
+        };
+
         var model = new CarModel()
         {
             Id = 1,
-            Brand = "Toyota",
+            Brand = brand,
             Model = "Corolla",
             Power = 100,
             FuelType = FuelType.Gas,

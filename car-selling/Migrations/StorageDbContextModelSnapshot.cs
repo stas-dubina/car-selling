@@ -15,7 +15,7 @@ namespace CarDealer.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.5");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
 
             modelBuilder.Entity("CarDealer.Domain.Car", b =>
                 {
@@ -40,15 +40,29 @@ namespace CarDealer.Migrations
                     b.ToTable("Cars");
                 });
 
+            modelBuilder.Entity("CarDealer.Domain.CarBrand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Brands");
+                });
+
             modelBuilder.Entity("CarDealer.Domain.CarModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Brand")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("BrandId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("FuelType")
                         .HasColumnType("INTEGER");
@@ -64,6 +78,8 @@ namespace CarDealer.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BrandId");
 
                     b.ToTable("CarModels");
                 });
@@ -103,6 +119,17 @@ namespace CarDealer.Migrations
                         .IsRequired();
 
                     b.Navigation("Model");
+                });
+
+            modelBuilder.Entity("CarDealer.Domain.CarModel", b =>
+                {
+                    b.HasOne("CarDealer.Domain.CarBrand", "Brand")
+                        .WithMany()
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Brand");
                 });
 
             modelBuilder.Entity("CarDealer.Domain.Operation", b =>

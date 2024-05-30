@@ -14,7 +14,7 @@ namespace CarDealer.Presentation
         public int Id { get { return _car.Id; } }
 
         // car model properies
-        public string Brand { get { return _car.Model.Brand; } }
+        public string Brand { get { return _car.Model.Brand.Name; } }
         public string Model { get { return _car.Model.Model; } }
         public FuelType FuelType { get { return _car.Model.FuelType; } }
         public int Power { get { return _car.Model.Power; } }

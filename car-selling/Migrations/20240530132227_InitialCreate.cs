@@ -6,18 +6,31 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CarDealer.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCarModel : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Brands",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Brands", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "CarModels",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Brand = table.Column<string>(type: "TEXT", nullable: false),
+                    BrandId = table.Column<int>(type: "INTEGER", nullable: false),
                     Model = table.Column<string>(type: "TEXT", nullable: false),
                     FuelType = table.Column<int>(type: "INTEGER", nullable: false),
                     Power = table.Column<int>(type: "INTEGER", nullable: false),
@@ -26,6 +39,12 @@ namespace CarDealer.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CarModels", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CarModels_Brands_BrandId",
+                        column: x => x.BrandId,
+                        principalTable: "Brands",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -71,6 +90,11 @@ namespace CarDealer.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_CarModels_BrandId",
+                table: "CarModels",
+                column: "BrandId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Cars_ModelId",
                 table: "Cars",
                 column: "ModelId");
@@ -92,6 +116,9 @@ namespace CarDealer.Migrations
 
             migrationBuilder.DropTable(
                 name: "CarModels");
+
+            migrationBuilder.DropTable(
+                name: "Brands");
         }
     }
 }

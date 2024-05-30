@@ -9,7 +9,7 @@ namespace CarDealer.Domain
     public class CarModel
     {
         public int Id { get; set; }
-        public string Brand { get; set; }
+        public CarBrand Brand { get; set; }
         public string Model { get; set; }
         public FuelType FuelType { get; set; }
         public int Power { get; set; }
