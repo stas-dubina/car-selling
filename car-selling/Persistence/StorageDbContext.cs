@@ -8,9 +8,9 @@ namespace CarDealer.Persistence
         private string _dbPath;
 
         public DbSet<Car> Cars { get; set; }
-        public DbSet<CarModel> CarModels { get; set; }
+        public DbSet<Model> Models { get; set; }
         public DbSet<Operation> Operatrions { get; set; }
-        public DbSet<CarBrand> Brands { get; set; }
+        public DbSet<Brand> Brands { get; set; }
         public StorageDbContext()
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;

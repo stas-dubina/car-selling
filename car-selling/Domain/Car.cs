@@ -4,7 +4,7 @@ public class Car
 {
     public int Id { get; set; }
 
-    public CarModel Model { get; set; }
+    public Model Model { get; set; }
     public int Year { get; set; }
     public string Description { get; set; }
     public List<Operation> Tasks { get; set; }
@@ -18,7 +18,7 @@ public class Car
 
     public Car() { }
 
-    public Car(int id, CarModel model, int year, string description, List<Operation> tasks)
+    public Car(int id, Model model, int year, string description, List<Operation> tasks)
     {
         Id = id;
         Model = model;

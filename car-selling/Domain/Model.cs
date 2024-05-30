@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CarDealer.Domain
 {
-    public class CarModel
+    public class Model
     {
         public int Id { get; set; }
-        public CarBrand Brand { get; set; }
-        public string Model { get; set; }
+        public Brand Brand { get; set; }
+        public string Name { get; set; }
         public FuelType FuelType { get; set; }
         public int Power { get; set; }
         public GearType GearType { get; set; }

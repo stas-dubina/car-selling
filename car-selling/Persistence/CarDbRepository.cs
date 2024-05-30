@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarDealer.Persistence
 {
-    internal class CarDbRepository : ICarRespository
+    internal class CarDbRepository : ICarRepository
     {
         private StorageDbContext _db;
 
@@ -31,13 +31,16 @@ namespace CarDealer.Persistence
             _db.SaveChanges();
         }
 
-        public List<Car> Search(string name, int yearStart, int yearEnd, FuelType? fuelType)
+        public List<Car> Search(int? brandId, int? modelId, int yearStart, int yearEnd, FuelType? fuelType)
         {
-            return _db.Cars.Where(car =>
-                car.Model.Model.ToLower().Contains(name.ToLower())
-                && car.Year >= yearStart && car.Year <= yearEnd
-                && (fuelType == null || car.Model.FuelType == fuelType)
-            ).ToList();
+            return _db.Cars
+                .Where(car =>
+                   (brandId == null || car.Model.Brand.Id == brandId)
+                    && (modelId == null || car.Model.Id == modelId)
+                    && car.Year >= yearStart && car.Year <= yearEnd
+                    && (fuelType == null || car.Model.FuelType == fuelType))
+                .OrderBy(car => car.Id)
+                .ToList();
         }
     }
 }

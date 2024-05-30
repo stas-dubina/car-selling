@@ -25,22 +25,22 @@ namespace CarDealer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CarModels",
+                name: "Models",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     BrandId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Model = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
                     FuelType = table.Column<int>(type: "INTEGER", nullable: false),
                     Power = table.Column<int>(type: "INTEGER", nullable: false),
                     GearType = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CarModels", x => x.Id);
+                    table.PrimaryKey("PK_Models", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CarModels_Brands_BrandId",
+                        name: "FK_Models_Brands_BrandId",
                         column: x => x.BrandId,
                         principalTable: "Brands",
                         principalColumn: "Id",
@@ -61,9 +61,9 @@ namespace CarDealer.Migrations
                 {
                     table.PrimaryKey("PK_Cars", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Cars_CarModels_ModelId",
+                        name: "FK_Cars_Models_ModelId",
                         column: x => x.ModelId,
-                        principalTable: "CarModels",
+                        principalTable: "Models",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -90,14 +90,14 @@ namespace CarDealer.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CarModels_BrandId",
-                table: "CarModels",
-                column: "BrandId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Cars_ModelId",
                 table: "Cars",
                 column: "ModelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Models_BrandId",
+                table: "Models",
+                column: "BrandId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Operatrions_CarId",
@@ -115,7 +115,7 @@ namespace CarDealer.Migrations
                 name: "Cars");
 
             migrationBuilder.DropTable(
-                name: "CarModels");
+                name: "Models");
 
             migrationBuilder.DropTable(
                 name: "Brands");

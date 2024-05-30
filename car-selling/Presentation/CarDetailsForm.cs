@@ -17,16 +17,16 @@ namespace CarDealer.Presentation
 
         private Car _car;
 
-        private ICarRespository _carRepository;
+        private ICarRepository _carRepository;
 
-        public CarDetailsForm(ICarRespository carRepository, Car car)
+        public CarDetailsForm(ICarRepository carRepository, Car car)
         {
             this._carRepository = carRepository;
             this._car = car;
             // init form
             InitializeComponent();
             this.idTextBox.Text = car.Id.ToString();
-            this.nameTextBox.Text = car.Model.Brand + " " + car.Model.Model ;
+            this.nameTextBox.Text = car.Model.Brand + " " + car.Model.Name ;
             this.yearTextBox.Text = car.Year.ToString();
 
             this.fuelTypeComboBox.DataSource = Enum.GetNames(typeof(FuelType));

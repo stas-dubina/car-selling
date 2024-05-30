@@ -30,6 +30,9 @@
         {
             resultGridView = new DataGridView();
             panel1 = new Panel();
+            brandSearchBox = new ComboBox();
+            modelSearchBox = new ComboBox();
+            label1 = new Label();
             fuelLabel = new Label();
             fuelTypeSearchBox = new ComboBox();
             yearLabel = new Label();
@@ -38,9 +41,6 @@
             yearStartSearchBox = new NumericUpDown();
             searchBtn = new Button();
             addBtn = new Button();
-            label1 = new Label();
-            modelSearchBox = new ComboBox();
-            brandSearchBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)resultGridView).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)yearEndSearchBox).BeginInit();
@@ -59,7 +59,7 @@
             resultGridView.Name = "resultGridView";
             resultGridView.ReadOnly = true;
             resultGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            resultGridView.Size = new Size(800, 351);
+            resultGridView.Size = new Size(775, 351);
             resultGridView.TabIndex = 0;
             resultGridView.CellDoubleClick += resultGridView_CellDoubleClick;
             // 
@@ -80,6 +80,32 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(388, 161);
             panel1.TabIndex = 1;
+            // 
+            // brandSearchBox
+            // 
+            brandSearchBox.FormattingEnabled = true;
+            brandSearchBox.Location = new Point(103, 6);
+            brandSearchBox.Name = "brandSearchBox";
+            brandSearchBox.Size = new Size(200, 23);
+            brandSearchBox.TabIndex = 11;
+            brandSearchBox.SelectedIndexChanged += brandSearchBox_SelectedIndexChanged;
+            // 
+            // modelSearchBox
+            // 
+            modelSearchBox.FormattingEnabled = true;
+            modelSearchBox.Location = new Point(103, 35);
+            modelSearchBox.Name = "modelSearchBox";
+            modelSearchBox.Size = new Size(200, 23);
+            modelSearchBox.TabIndex = 10;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(58, 38);
+            label1.Name = "label1";
+            label1.Size = new Size(41, 15);
+            label1.TabIndex = 9;
+            label1.Text = "Model";
             // 
             // fuelLabel
             // 
@@ -155,36 +181,11 @@
             addBtn.Text = "Add Car";
             addBtn.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(58, 38);
-            label1.Name = "label1";
-            label1.Size = new Size(41, 15);
-            label1.TabIndex = 9;
-            label1.Text = "Model";
-            // 
-            // modelSearchBox
-            // 
-            modelSearchBox.FormattingEnabled = true;
-            modelSearchBox.Location = new Point(103, 35);
-            modelSearchBox.Name = "modelSearchBox";
-            modelSearchBox.Size = new Size(200, 23);
-            modelSearchBox.TabIndex = 10;
-            // 
-            // brandSearchBox
-            // 
-            brandSearchBox.FormattingEnabled = true;
-            brandSearchBox.Location = new Point(103, 6);
-            brandSearchBox.Name = "brandSearchBox";
-            brandSearchBox.Size = new Size(200, 23);
-            brandSearchBox.TabIndex = 11;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 565);
+            ClientSize = new Size(775, 565);
             Controls.Add(addBtn);
             Controls.Add(panel1);
             Controls.Add(resultGridView);

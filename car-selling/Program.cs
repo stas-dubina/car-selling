@@ -18,50 +18,84 @@ namespace CarDealer
 
             var db = new StorageDbContext();
             var carRepository = new CarDbRepository(db);
+            var brandRepository = new BrandDbRepository(db);
+            var modelRepository = new ModelDbRepository(db);
             //test data
 
             if (db.Cars.Count() == 0)
             {
-                var brand = new CarBrand()
-                {
-                    Id = 1,
-                    Name = "Toyota"
-                };
+                initDb(carRepository);
+            }
 
-                var model = new CarModel()
-                {
-                    Id = 1,
-                    Brand = brand,
-                    Model = "Corolla",
-                    Power = 100,
-                    FuelType = FuelType.Gas,
-                    GearType = GearType.Manual
-                };
 
-                carRepository.Add(new Car(1, model, 2016, "", new List<Operation>()
+            Application.Run(new MainForm(brandRepository, carRepository, modelRepository));
+        }
+
+        private static void initDb(ICarRepository carRepository)
+        {
+            var brandToyota = new Brand()
+            {
+                Id = 1,
+                Name = "Toyota"
+            };
+
+            var brandBmw = new Brand()
+            {
+                Id = 2,
+                Name = "BMW"
+            };
+
+
+            var modelCorolla = new Model()
+            {
+                Id = 1,
+                Brand = brandToyota,
+                Name = "Corolla",
+                Power = 100,
+                FuelType = FuelType.Gas,
+                GearType = GearType.Manual
+            };
+
+            var modelCamry = new Model()
+            {
+                Id = 2,
+                Brand = brandToyota,
+                Name = "Camry",
+                Power = 181,
+                FuelType = FuelType.Gas,
+                GearType = GearType.Automatic
+            };
+
+            var modelI3 = new Model()
+            {
+                Id = 3,
+                Brand = brandBmw,
+                Name = "i3",
+                Power = 150,
+                FuelType = FuelType.Electro,
+                GearType = GearType.Automatic
+            };
+
+            carRepository.Add(new Car(1, modelCorolla, 2016, "", new List<Operation>()
                 {
                     new Operation(DateTime.Now, "Покупка авто", -15_000),
                     new Operation(DateTime.Now, "Замiна прокладки ГБЦ", -300)
                 }));
-                
-                carRepository.Add(new Car(2, model, 2015, "", new List<Operation>()
-                {
-                    new Operation(DateTime.Now, "Покупка авто", -25_000)
-                }));
-                
-                carRepository.Add(new Car(3, model, 2017, "", new List<Operation>()
-                {
-                    new Operation(DateTime.Now, "Покупка авто", -35_000)
-                }));
-                
-                carRepository.Add(new Car(4, model, 2017, "", new List<Operation>()
-                {
-                    new Operation(DateTime.Now, "Покупка авто", -23_000)
-                }));
-            }
 
+            carRepository.Add(new Car(2, modelI3, 2015, "", new List<Operation>()
+                {
+                    new Operation(DateTime.Now, "Покупка авто", -15_000)
+                }));
 
-            Application.Run(new MainForm(carRepository));
+            carRepository.Add(new Car(3, modelCamry, 2016, "", new List<Operation>()
+                {
+                    new Operation(DateTime.Now, "Покупка авто", -30_000)
+                }));
+
+            carRepository.Add(new Car(4, modelCorolla, 2017, "", new List<Operation>()
+                {
+                    new Operation(DateTime.Now, "Покупка авто", -16_000)
+                }));
         }
     }
 }

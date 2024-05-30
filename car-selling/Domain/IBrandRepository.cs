@@ -2,8 +2,8 @@
 {
     public interface IBrandRepository
     {
-        void Save(CarBrand brand);
-        List<CarBrand> GetAll();
-        List<CarBrand> Search();
+        void Add(Brand brand);
+        void Save(Brand brand);
+        List<Brand> GetAll();
     }
 }

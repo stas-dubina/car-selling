@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarDealer.Migrations
 {
     [DbContext(typeof(StorageDbContext))]
-    [Migration("20240530132227_InitialCreate")]
+    [Migration("20240530200014_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -19,6 +19,21 @@ namespace CarDealer.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
+
+            modelBuilder.Entity("CarDealer.Domain.Brand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Brands");
+                });
 
             modelBuilder.Entity("CarDealer.Domain.Car", b =>
                 {
@@ -43,22 +58,7 @@ namespace CarDealer.Migrations
                     b.ToTable("Cars");
                 });
 
-            modelBuilder.Entity("CarDealer.Domain.CarBrand", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Brands");
-                });
-
-            modelBuilder.Entity("CarDealer.Domain.CarModel", b =>
+            modelBuilder.Entity("CarDealer.Domain.Model", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -73,7 +73,7 @@ namespace CarDealer.Migrations
                     b.Property<int>("GearType")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Model")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -84,7 +84,7 @@ namespace CarDealer.Migrations
 
                     b.HasIndex("BrandId");
 
-                    b.ToTable("CarModels");
+                    b.ToTable("Models");
                 });
 
             modelBuilder.Entity("CarDealer.Domain.Operation", b =>
@@ -115,7 +115,7 @@ namespace CarDealer.Migrations
 
             modelBuilder.Entity("CarDealer.Domain.Car", b =>
                 {
-                    b.HasOne("CarDealer.Domain.CarModel", "Model")
+                    b.HasOne("CarDealer.Domain.Model", "Model")
                         .WithMany()
                         .HasForeignKey("ModelId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -124,9 +124,9 @@ namespace CarDealer.Migrations
                     b.Navigation("Model");
                 });
 
-            modelBuilder.Entity("CarDealer.Domain.CarModel", b =>
+            modelBuilder.Entity("CarDealer.Domain.Model", b =>
                 {
-                    b.HasOne("CarDealer.Domain.CarBrand", "Brand")
+                    b.HasOne("CarDealer.Domain.Brand", "Brand")
                         .WithMany()
                         .HasForeignKey("BrandId")
                         .OnDelete(DeleteBehavior.Cascade)
