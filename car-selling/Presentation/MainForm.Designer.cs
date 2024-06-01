@@ -70,7 +70,7 @@
             resultGridView.Name = "resultGridView";
             resultGridView.ReadOnly = true;
             resultGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            resultGridView.Size = new Size(775, 351);
+            resultGridView.Size = new Size(964, 351);
             resultGridView.TabIndex = 0;
             resultGridView.CellDoubleClick += resultGridView_CellDoubleClick;
             // 
@@ -185,9 +185,9 @@
             // 
             // addBtn
             // 
-            addBtn.Location = new Point(688, 28);
+            addBtn.Location = new Point(424, 154);
             addBtn.Name = "addBtn";
-            addBtn.Size = new Size(75, 54);
+            addBtn.Size = new Size(184, 35);
             addBtn.TabIndex = 2;
             addBtn.Text = "Add Car";
             addBtn.UseVisualStyleBackColor = true;
@@ -241,7 +241,7 @@
             menuStrip2.Items.AddRange(new ToolStripItem[] { menuBarManager, menuBarHelp, toolStripMenuItem1 });
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
-            menuStrip2.Size = new Size(775, 24);
+            menuStrip2.Size = new Size(964, 24);
             menuStrip2.TabIndex = 4;
             menuStrip2.Text = "menuStrip2";
             // 
@@ -275,7 +275,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(775, 565);
+            ClientSize = new Size(964, 565);
             Controls.Add(balanceValue);
             Controls.Add(balanceLabel);
             Controls.Add(addBtn);

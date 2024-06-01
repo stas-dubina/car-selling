@@ -58,7 +58,7 @@ namespace CarDealer.Presentation
                     {
                         Timestamp = DateTime.Now,
                         Description = "Покупка автомобіля",
-                        Amount = -1 * priceBox.Value,
+                        Amount = -1 * (int)priceBox.Value,
                     }
                 }
             };

@@ -23,7 +23,7 @@ namespace CarDealer.Presentation
             }
 
             var timestamp = new DateTime(DateOnly.FromDateTime(datePicker.Value), TimeOnly.FromDateTime(timePicker.Value));
-            this.Result = new Operation(timestamp, descriptionTextBox.Text, amountTextBox.Value);
+            this.Result = new Operation(timestamp, descriptionTextBox.Text, (int)amountTextBox.Value);
             this.DialogResult = DialogResult.OK;
             Close();
         }

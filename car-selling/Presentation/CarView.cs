@@ -23,6 +23,7 @@ namespace CarDealer.Presentation
         public int Year { get { return _car.Year; } }
         public string Description { get { return _car.Description; } }
         public List<Operation> Tasks { get { return _car.Tasks; } }
+        public int Balance { get { return _car.Balance; } }
 
         public Car GetCar()
         {

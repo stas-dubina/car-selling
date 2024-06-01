@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarDealer.Migrations
 {
     [DbContext(typeof(StorageDbContext))]
-    [Migration("20240530200014_InitialCreate")]
+    [Migration("20240601205457_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -93,8 +93,8 @@ namespace CarDealer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Amount")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("CarId")
                         .HasColumnType("INTEGER");

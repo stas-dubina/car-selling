@@ -58,7 +58,7 @@
             editBtn.Name = "editBtn";
             editBtn.Size = new Size(75, 23);
             editBtn.TabIndex = 1;
-            editBtn.Text = "Edit";
+            editBtn.Text = "Save";
             editBtn.UseVisualStyleBackColor = true;
             editBtn.Click += editBtn_Click;
             // 
@@ -99,7 +99,6 @@
             // 
             // amountTextBox
             // 
-            amountTextBox.DecimalPlaces = 2;
             amountTextBox.Increment = new decimal(new int[] { 100, 0, 0, 0 });
             amountTextBox.Location = new Point(103, 110);
             amountTextBox.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });

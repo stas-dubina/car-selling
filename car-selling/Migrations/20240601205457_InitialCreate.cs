@@ -76,7 +76,7 @@ namespace CarDealer.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
-                    Amount = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Amount = table.Column<int>(type: "INTEGER", nullable: false),
                     CarId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>

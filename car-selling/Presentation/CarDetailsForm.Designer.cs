@@ -177,6 +177,7 @@
             Controls.Add(panel1);
             Name = "CarDetailsForm";
             Text = "Car Info";
+            Load += CarDetailsForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)yearTextBox).EndInit();

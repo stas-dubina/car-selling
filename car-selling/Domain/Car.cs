@@ -8,7 +8,7 @@ public class Car
     public int Year { get; set; }
     public string Description { get; set; }
     public List<Operation> Tasks { get; set; }
-    public decimal Balance
+    public int Balance
     {
         get
         {

@@ -90,8 +90,8 @@ namespace CarDealer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Amount")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("CarId")
                         .HasColumnType("INTEGER");

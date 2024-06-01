@@ -38,6 +38,29 @@ namespace CarDealer.Presentation
             brandSearchBox.DisplayMember = "Name";
 
             refreshResultGridView();
+            refreshBalance();
+        }
+
+        private void refreshBalance()
+        {
+            var balance = _carRepository.GetBalance();
+            balanceValue.Text = balance.ToString() + "$";
+
+            if (balance <= 0)
+            {
+                balanceValue.ForeColor = Color.Red;
+            }
+            else
+            {
+                balanceValue.ForeColor = Color.Green;
+            }
+        }
+
+        private void refreshResultGridView()
+        {
+            resultGridView.DataSource = null;
+            resultGridView.DataSource = _carRepository.GetAll()
+                .Select(car => new CarView(car)).ToList();
         }
 
         private void brandSearchBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,13 +76,6 @@ namespace CarDealer.Presentation
             modelSearchBox.DataSource = null;
             modelSearchBox.DataSource = models;
             modelSearchBox.DisplayMember = "Name";
-        }
-
-        private void refreshResultGridView()
-        {
-            resultGridView.DataSource = null;
-            resultGridView.DataSource = _carRepository.GetAll()
-                .Select(car => new CarView(car)).ToList();
         }
 
         private void searchBtn_Click(object sender, EventArgs e)
@@ -84,6 +100,7 @@ namespace CarDealer.Presentation
             carDetails.ShowDialog();
 
             refreshResultGridView();
+            refreshBalance();
         }
 
         private void menuItemAbout_Click(object sender, EventArgs e)
@@ -118,6 +135,7 @@ namespace CarDealer.Presentation
             addCarForm.ShowDialog();
 
             refreshResultGridView();
+            refreshBalance();
         }
     }
 }

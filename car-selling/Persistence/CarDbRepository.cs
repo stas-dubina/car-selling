@@ -42,5 +42,23 @@ namespace CarDealer.Persistence
                 .OrderBy(car => car.Id)
                 .ToList();
         }
+
+        public int GetBalance()
+        {
+            return _db.Operatrions.Select(op => op.Amount).Sum();
+        }
+
+        public void RemoveOperation(Car car, Operation task)
+        {
+            _db.Operatrions.Remove(task);
+            _db.SaveChanges();
+        }
+
+        public void AddOperation(Car car, Operation task)
+        {
+            _db.Operatrions.Add(task);
+            car.Tasks.Add(task);
+            _db.SaveChanges();
+        }
     }
 }

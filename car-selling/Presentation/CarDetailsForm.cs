@@ -26,7 +26,7 @@ namespace CarDealer.Presentation
             // init form
             InitializeComponent();
             this.idTextBox.Text = car.Id.ToString();
-            this.nameTextBox.Text = car.Model.Brand + " " + car.Model.Name ;
+            this.nameTextBox.Text = car.Model.Brand + " " + car.Model.Name;
             this.yearTextBox.Text = car.Year.ToString();
 
             this.fuelTypeComboBox.DataSource = Enum.GetNames(typeof(FuelType));
@@ -34,6 +34,11 @@ namespace CarDealer.Presentation
 
             updateOperationGridView();
             _carRepository = carRepository;
+        }
+
+        private void CarDetailsForm_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void updateOperationGridView()
@@ -64,8 +69,8 @@ namespace CarDealer.Presentation
 
             if (e.ColumnIndex == operationsGridView.Columns[DELETE_COLUMN_NAME].Index)
             {
-                _car.Tasks.RemoveAt(e.RowIndex);
-                _carRepository.Save(_car);
+                var task = _car.Tasks[e.RowIndex];
+                _carRepository.RemoveOperation(_car, task);
 
                 updateOperationGridView();
             }
@@ -75,11 +80,10 @@ namespace CarDealer.Presentation
         {
             var editDialog = new EditOperationForm();
             var dialogResult = editDialog.ShowDialog();
-            if (dialogResult == DialogResult.OK) 
+            if (dialogResult == DialogResult.OK)
             {
                 var operation = editDialog.Result;
-                _car.Tasks.Add(operation);
-                _carRepository.Save(_car);
+                _carRepository.AddOperation(_car, operation);
                 updateOperationGridView();
             }
         }
