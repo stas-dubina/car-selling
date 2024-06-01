@@ -49,6 +49,8 @@
             menuItemAbout = new ToolStripMenuItem();
             menuStrip2 = new MenuStrip();
             toolStripMenuItem1 = new ToolStripMenuItem();
+            balanceLabel = new Label();
+            balanceValue = new Label();
             ((System.ComponentModel.ISupportInitialize)resultGridView).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)yearEndSearchBox).BeginInit();
@@ -85,7 +87,7 @@
             panel1.Controls.Add(yearEndSearchBox);
             panel1.Controls.Add(yearStartSearchBox);
             panel1.Controls.Add(searchBtn);
-            panel1.Location = new Point(193, 28);
+            panel1.Location = new Point(12, 28);
             panel1.Name = "panel1";
             panel1.Size = new Size(388, 161);
             panel1.TabIndex = 1;
@@ -183,12 +185,13 @@
             // 
             // addBtn
             // 
-            addBtn.Location = new Point(693, 28);
+            addBtn.Location = new Point(688, 28);
             addBtn.Name = "addBtn";
-            addBtn.Size = new Size(75, 23);
+            addBtn.Size = new Size(75, 54);
             addBtn.TabIndex = 2;
             addBtn.Text = "Add Car";
             addBtn.UseVisualStyleBackColor = true;
+            addBtn.Click += addBtn_Click;
             // 
             // menuBarManager
             // 
@@ -202,12 +205,14 @@
             menuItemBrands.Name = "menuItemBrands";
             menuItemBrands.Size = new Size(113, 22);
             menuItemBrands.Text = "Brands";
+            menuItemBrands.Click += menuItemBrands_Click;
             // 
             // menuItemModels
             // 
             menuItemModels.Name = "menuItemModels";
             menuItemModels.Size = new Size(113, 22);
             menuItemModels.Text = "Models";
+            menuItemModels.Click += menuItemModels_Click;
             // 
             // menuBarHelp
             // 
@@ -220,14 +225,14 @@
             // 
             menuItemHelp.Name = "menuItemHelp";
             menuItemHelp.ShortcutKeys = Keys.F1;
-            menuItemHelp.Size = new Size(180, 22);
+            menuItemHelp.Size = new Size(146, 22);
             menuItemHelp.Text = "View Help";
             menuItemHelp.Click += menuItemHelp_Click;
             // 
             // menuItemAbout
             // 
             menuItemAbout.Name = "menuItemAbout";
-            menuItemAbout.Size = new Size(180, 22);
+            menuItemAbout.Size = new Size(146, 22);
             menuItemAbout.Text = "About";
             menuItemAbout.Click += menuItemAbout_Click;
             // 
@@ -245,11 +250,34 @@
             toolStripMenuItem1.Name = "toolStripMenuItem1";
             toolStripMenuItem1.Size = new Size(12, 20);
             // 
+            // balanceLabel
+            // 
+            balanceLabel.AutoSize = true;
+            balanceLabel.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            balanceLabel.Location = new Point(424, 28);
+            balanceLabel.Name = "balanceLabel";
+            balanceLabel.Size = new Size(108, 37);
+            balanceLabel.TabIndex = 5;
+            balanceLabel.Text = "Balance";
+            // 
+            // balanceValue
+            // 
+            balanceValue.AutoSize = true;
+            balanceValue.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            balanceValue.ForeColor = Color.Green;
+            balanceValue.Location = new Point(424, 67);
+            balanceValue.Name = "balanceValue";
+            balanceValue.Size = new Size(184, 65);
+            balanceValue.TabIndex = 6;
+            balanceValue.Text = "10000$";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(775, 565);
+            Controls.Add(balanceValue);
+            Controls.Add(balanceLabel);
             Controls.Add(addBtn);
             Controls.Add(panel1);
             Controls.Add(resultGridView);
@@ -291,5 +319,7 @@
         private ToolStripMenuItem menuItemAbout;
         private ToolStripMenuItem menuItemBrands;
         private ToolStripMenuItem menuItemModels;
+        private Label balanceLabel;
+        private Label balanceValue;
     }
 }

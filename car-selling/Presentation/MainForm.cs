@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using CarDealer.Domain;
+using CarDealer.Persistence;
 
 namespace CarDealer.Presentation
 {
@@ -87,7 +88,7 @@ namespace CarDealer.Presentation
 
         private void menuItemAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this, "Система управління автосалоном, ver 1.0", 
+            MessageBox.Show(this, "Система управління автосалоном, ver 1.0",
                        "About", MessageBoxButtons.OK,
                        MessageBoxIcon.Information);
         }
@@ -97,6 +98,26 @@ namespace CarDealer.Presentation
             MessageBox.Show(this, "Курсова робота студента групи ПЗПІ - 23 - 6 Дубіни Станіслава",
                                    "Help", MessageBoxButtons.OK,
                                    MessageBoxIcon.Information);
+        }
+
+        private void menuItemBrands_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this, "Ця функція не працює у демоверсії.",
+                null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void menuItemModels_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this, "Ця функція не працює у демоверсії.",
+                null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            var addCarForm = new AddCarForm(_brandRepository, _carRepository, _modelRepository);
+            addCarForm.ShowDialog();
+
+            refreshResultGridView();
         }
     }
 }
