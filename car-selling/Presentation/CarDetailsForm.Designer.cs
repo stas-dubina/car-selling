@@ -41,6 +41,8 @@
             operationsGridView = new DataGridView();
             addOperationBtn = new Button();
             sellBtn = new Button();
+            balanceValue = new Label();
+            balanceLabel = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)yearTextBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)operationsGridView).BeginInit();
@@ -184,11 +186,34 @@
             sellBtn.UseVisualStyleBackColor = false;
             sellBtn.Click += sellBtn_Click;
             // 
+            // balanceValue
+            // 
+            balanceValue.AutoSize = true;
+            balanceValue.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            balanceValue.ForeColor = Color.Green;
+            balanceValue.Location = new Point(342, 52);
+            balanceValue.Name = "balanceValue";
+            balanceValue.Size = new Size(184, 65);
+            balanceValue.TabIndex = 13;
+            balanceValue.Text = "10000$";
+            // 
+            // balanceLabel
+            // 
+            balanceLabel.AutoSize = true;
+            balanceLabel.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            balanceLabel.Location = new Point(342, 12);
+            balanceLabel.Name = "balanceLabel";
+            balanceLabel.Size = new Size(108, 37);
+            balanceLabel.TabIndex = 12;
+            balanceLabel.Text = "Balance";
+            // 
             // CarDetailsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(balanceValue);
+            Controls.Add(balanceLabel);
             Controls.Add(sellBtn);
             Controls.Add(addOperationBtn);
             Controls.Add(operationsGridView);
@@ -201,6 +226,7 @@
             ((System.ComponentModel.ISupportInitialize)yearTextBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)operationsGridView).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -218,5 +244,7 @@
         private DataGridView operationsGridView;
         private Button addOperationBtn;
         private Button sellBtn;
+        private Label balanceValue;
+        private Label balanceLabel;
     }
 }

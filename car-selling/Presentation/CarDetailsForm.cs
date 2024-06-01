@@ -32,6 +32,7 @@ namespace CarDealer.Presentation
             this.fuelTypeComboBox.DataSource = Enum.GetNames(typeof(FuelType));
             this.fuelTypeComboBox.SelectedIndex = (int)car.Model.FuelType;
 
+            refreshBalance();
             updateOperationGridView();
             _carRepository = carRepository;
         }
@@ -72,6 +73,7 @@ namespace CarDealer.Presentation
                 var task = _car.Tasks[e.RowIndex];
                 _carRepository.RemoveOperation(_car, task);
 
+                refreshBalance();
                 updateOperationGridView();
             }
         }
@@ -86,14 +88,31 @@ namespace CarDealer.Presentation
             addOperatrion(true);
         }
 
-        private void addOperatrion(bool positiveAmount) {
+        private void addOperatrion(bool positiveAmount)
+        {
             var editDialog = new EditOperationForm(positiveAmount);
             var dialogResult = editDialog.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
                 var operation = editDialog.Result;
                 _carRepository.AddOperation(_car, operation);
+
+                refreshBalance();
                 updateOperationGridView();
+            }
+        }
+        private void refreshBalance()
+        {
+            var balance = _car.Balance;
+            balanceValue.Text = balance.ToString() + "$";
+
+            if (balance <= 0)
+            {
+                balanceValue.ForeColor = Color.Red;
+            }
+            else
+            {
+                balanceValue.ForeColor = Color.Green;
             }
         }
     }
