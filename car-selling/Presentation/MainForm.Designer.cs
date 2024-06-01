@@ -41,10 +41,19 @@
             yearStartSearchBox = new NumericUpDown();
             searchBtn = new Button();
             addBtn = new Button();
+            menuBarManager = new ToolStripMenuItem();
+            menuItemBrands = new ToolStripMenuItem();
+            menuItemModels = new ToolStripMenuItem();
+            menuBarHelp = new ToolStripMenuItem();
+            menuItemHelp = new ToolStripMenuItem();
+            menuItemAbout = new ToolStripMenuItem();
+            menuStrip2 = new MenuStrip();
+            toolStripMenuItem1 = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)resultGridView).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)yearEndSearchBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)yearStartSearchBox).BeginInit();
+            menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
             // resultGridView
@@ -76,7 +85,7 @@
             panel1.Controls.Add(yearEndSearchBox);
             panel1.Controls.Add(yearStartSearchBox);
             panel1.Controls.Add(searchBtn);
-            panel1.Location = new Point(12, 12);
+            panel1.Location = new Point(193, 28);
             panel1.Name = "panel1";
             panel1.Size = new Size(388, 161);
             panel1.TabIndex = 1;
@@ -181,6 +190,61 @@
             addBtn.Text = "Add Car";
             addBtn.UseVisualStyleBackColor = true;
             // 
+            // menuBarManager
+            // 
+            menuBarManager.DropDownItems.AddRange(new ToolStripItem[] { menuItemBrands, menuItemModels });
+            menuBarManager.Name = "menuBarManager";
+            menuBarManager.Size = new Size(66, 20);
+            menuBarManager.Text = "Manager";
+            // 
+            // menuItemBrands
+            // 
+            menuItemBrands.Name = "menuItemBrands";
+            menuItemBrands.Size = new Size(113, 22);
+            menuItemBrands.Text = "Brands";
+            // 
+            // menuItemModels
+            // 
+            menuItemModels.Name = "menuItemModels";
+            menuItemModels.Size = new Size(113, 22);
+            menuItemModels.Text = "Models";
+            // 
+            // menuBarHelp
+            // 
+            menuBarHelp.DropDownItems.AddRange(new ToolStripItem[] { menuItemHelp, menuItemAbout });
+            menuBarHelp.Name = "menuBarHelp";
+            menuBarHelp.Size = new Size(44, 20);
+            menuBarHelp.Text = "Help";
+            // 
+            // menuItemHelp
+            // 
+            menuItemHelp.Name = "menuItemHelp";
+            menuItemHelp.ShortcutKeys = Keys.F1;
+            menuItemHelp.Size = new Size(180, 22);
+            menuItemHelp.Text = "View Help";
+            menuItemHelp.Click += menuItemHelp_Click;
+            // 
+            // menuItemAbout
+            // 
+            menuItemAbout.Name = "menuItemAbout";
+            menuItemAbout.Size = new Size(180, 22);
+            menuItemAbout.Text = "About";
+            menuItemAbout.Click += menuItemAbout_Click;
+            // 
+            // menuStrip2
+            // 
+            menuStrip2.Items.AddRange(new ToolStripItem[] { menuBarManager, menuBarHelp, toolStripMenuItem1 });
+            menuStrip2.Location = new Point(0, 0);
+            menuStrip2.Name = "menuStrip2";
+            menuStrip2.Size = new Size(775, 24);
+            menuStrip2.TabIndex = 4;
+            menuStrip2.Text = "menuStrip2";
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(12, 20);
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -189,15 +253,19 @@
             Controls.Add(addBtn);
             Controls.Add(panel1);
             Controls.Add(resultGridView);
+            Controls.Add(menuStrip2);
             Name = "MainForm";
-            Text = "MainForm";
+            Text = "My Car Dealer";
             Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)resultGridView).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)yearEndSearchBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)yearStartSearchBox).EndInit();
+            menuStrip2.ResumeLayout(false);
+            menuStrip2.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -215,5 +283,13 @@
         private ComboBox brandSearchBox;
         private ComboBox modelSearchBox;
         private Label label1;
+        private ToolStripMenuItem menuBarManager;
+        private ToolStripMenuItem menuBarHelp;
+        private MenuStrip menuStrip2;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem menuItemHelp;
+        private ToolStripMenuItem menuItemAbout;
+        private ToolStripMenuItem menuItemBrands;
+        private ToolStripMenuItem menuItemModels;
     }
 }

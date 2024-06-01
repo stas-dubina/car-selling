@@ -85,5 +85,18 @@ namespace CarDealer.Presentation
             refreshResultGridView();
         }
 
+        private void menuItemAbout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this, "Система управління автосалоном, ver 1.0", 
+                       "About", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+        }
+
+        private void menuItemHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this, "Курсова робота студента групи ПЗПІ - 23 - 6 Дубіни Станіслава",
+                                   "Help", MessageBoxButtons.OK,
+                                   MessageBoxIcon.Information);
+        }
     }
 }

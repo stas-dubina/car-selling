@@ -90,6 +90,7 @@
             // 
             // fuelTypeComboBox
             // 
+            fuelTypeComboBox.Enabled = false;
             fuelTypeComboBox.FormattingEnabled = true;
             fuelTypeComboBox.Location = new Point(70, 103);
             fuelTypeComboBox.Name = "fuelTypeComboBox";
@@ -120,6 +121,7 @@
             yearTextBox.Maximum = new decimal(new int[] { 2025, 0, 0, 0 });
             yearTextBox.Minimum = new decimal(new int[] { 1970, 0, 0, 0 });
             yearTextBox.Name = "yearTextBox";
+            yearTextBox.ReadOnly = true;
             yearTextBox.Size = new Size(90, 23);
             yearTextBox.TabIndex = 2;
             yearTextBox.Value = new decimal(new int[] { 1970, 0, 0, 0 });
@@ -138,6 +140,7 @@
             nameTextBox.Location = new Point(70, 36);
             nameTextBox.Name = "nameTextBox";
             nameTextBox.PlaceholderText = "Type text";
+            nameTextBox.ReadOnly = true;
             nameTextBox.Size = new Size(90, 23);
             nameTextBox.TabIndex = 0;
             // 
