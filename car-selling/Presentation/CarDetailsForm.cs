@@ -78,7 +78,16 @@ namespace CarDealer.Presentation
 
         private void addOperationBtn_Click(object sender, EventArgs e)
         {
-            var editDialog = new EditOperationForm();
+            addOperatrion(false);
+        }
+
+        private void sellBtn_Click(object sender, EventArgs e)
+        {
+            addOperatrion(true);
+        }
+
+        private void addOperatrion(bool positiveAmount) {
+            var editDialog = new EditOperationForm(positiveAmount);
             var dialogResult = editDialog.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {

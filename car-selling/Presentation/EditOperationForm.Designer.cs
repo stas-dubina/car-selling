@@ -49,7 +49,7 @@
             descriptionTextBox.Name = "descriptionTextBox";
             descriptionTextBox.PlaceholderText = "Type text";
             descriptionTextBox.Size = new Size(200, 23);
-            descriptionTextBox.TabIndex = 0;
+            descriptionTextBox.TabIndex = 1;
             descriptionTextBox.Validating += descriptionTextBox_Validating;
             // 
             // editBtn
@@ -57,7 +57,7 @@
             editBtn.Location = new Point(147, 154);
             editBtn.Name = "editBtn";
             editBtn.Size = new Size(75, 23);
-            editBtn.TabIndex = 1;
+            editBtn.TabIndex = 3;
             editBtn.Text = "Save";
             editBtn.UseVisualStyleBackColor = true;
             editBtn.Click += editBtn_Click;
@@ -95,24 +95,23 @@
             datePicker.Location = new Point(103, 31);
             datePicker.Name = "datePicker";
             datePicker.Size = new Size(119, 23);
-            datePicker.TabIndex = 8;
+            datePicker.TabIndex = 5;
             // 
             // amountTextBox
             // 
             amountTextBox.Increment = new decimal(new int[] { 100, 0, 0, 0 });
             amountTextBox.Location = new Point(103, 110);
             amountTextBox.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
-            amountTextBox.Minimum = new decimal(new int[] { 1000000, 0, 0, int.MinValue });
             amountTextBox.Name = "amountTextBox";
             amountTextBox.Size = new Size(90, 23);
-            amountTextBox.TabIndex = 9;
+            amountTextBox.TabIndex = 2;
             // 
             // cancelBtn
             // 
             cancelBtn.Location = new Point(228, 154);
             cancelBtn.Name = "cancelBtn";
             cancelBtn.Size = new Size(75, 23);
-            cancelBtn.TabIndex = 10;
+            cancelBtn.TabIndex = 4;
             cancelBtn.Text = "Cancel";
             cancelBtn.UseVisualStyleBackColor = true;
             cancelBtn.Click += cancelBtn_Click;
@@ -128,10 +127,11 @@
             timePicker.Name = "timePicker";
             timePicker.ShowUpDown = true;
             timePicker.Size = new Size(75, 23);
-            timePicker.TabIndex = 11;
+            timePicker.TabIndex = 6;
             // 
             // EditOperationForm
             // 
+            AcceptButton = editBtn;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(344, 191);

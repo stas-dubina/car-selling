@@ -40,6 +40,7 @@
             nameTextBox = new TextBox();
             operationsGridView = new DataGridView();
             addOperationBtn = new Button();
+            sellBtn = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)yearTextBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)operationsGridView).BeginInit();
@@ -159,19 +160,36 @@
             // 
             // addOperationBtn
             // 
-            addOperationBtn.Location = new Point(713, 187);
+            addOperationBtn.BackColor = Color.DarkRed;
+            addOperationBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            addOperationBtn.ForeColor = Color.White;
+            addOperationBtn.Location = new Point(685, 157);
             addOperationBtn.Name = "addOperationBtn";
-            addOperationBtn.Size = new Size(75, 23);
+            addOperationBtn.Size = new Size(103, 40);
             addOperationBtn.TabIndex = 10;
-            addOperationBtn.Text = "Add";
-            addOperationBtn.UseVisualStyleBackColor = true;
+            addOperationBtn.Text = " Add Сosts";
+            addOperationBtn.UseVisualStyleBackColor = false;
             addOperationBtn.Click += addOperationBtn_Click;
+            // 
+            // sellBtn
+            // 
+            sellBtn.BackColor = Color.Green;
+            sellBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            sellBtn.ForeColor = Color.White;
+            sellBtn.Location = new Point(685, 102);
+            sellBtn.Name = "sellBtn";
+            sellBtn.Size = new Size(103, 40);
+            sellBtn.TabIndex = 11;
+            sellBtn.Text = "Sell Car";
+            sellBtn.UseVisualStyleBackColor = false;
+            sellBtn.Click += sellBtn_Click;
             // 
             // CarDetailsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(sellBtn);
             Controls.Add(addOperationBtn);
             Controls.Add(operationsGridView);
             Controls.Add(panel1);
@@ -199,5 +217,6 @@
         private TextBox idTextBox;
         private DataGridView operationsGridView;
         private Button addOperationBtn;
+        private Button sellBtn;
     }
 }

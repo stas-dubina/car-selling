@@ -4,15 +4,20 @@ namespace CarDealer.Presentation
 {
     public partial class EditOperationForm : Form
     {
+
+        bool _positiveAmount;
+        
         public Operation Result { get; set; }
 
-        public EditOperationForm()
+        public EditOperationForm(bool positiveAmount)
         {
             InitializeComponent();
             timePicker.Format = DateTimePickerFormat.Time;
             timePicker.ShowUpDown = true;
 
             datePicker.CustomFormat = "dd-MM-yyyy";
+            
+            _positiveAmount = positiveAmount;
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -23,7 +28,8 @@ namespace CarDealer.Presentation
             }
 
             var timestamp = new DateTime(DateOnly.FromDateTime(datePicker.Value), TimeOnly.FromDateTime(timePicker.Value));
-            this.Result = new Operation(timestamp, descriptionTextBox.Text, (int)amountTextBox.Value);
+            var amount = (int)amountTextBox.Value;
+            this.Result = new Operation(timestamp, descriptionTextBox.Text, _positiveAmount ? amount : -1 * amount);
             this.DialogResult = DialogResult.OK;
             Close();
         }
