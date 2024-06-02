@@ -45,6 +45,9 @@ namespace CarDealer.Migrations
                     b.Property<int>("ModelId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Year")
                         .HasColumnType("INTEGER");
 

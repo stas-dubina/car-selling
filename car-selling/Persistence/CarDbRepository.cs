@@ -31,14 +31,15 @@ namespace CarDealer.Persistence
             _db.SaveChanges();
         }
 
-        public List<Car> Search(int? brandId, int? modelId, int yearStart, int yearEnd, FuelType? fuelType)
+        public List<Car> Search(int? brandId, int? modelId, int yearStart, int yearEnd, FuelType? fuelType, CarStatus? status)
         {
             return _db.Cars
                 .Where(car =>
                    (brandId == null || car.Model.Brand.Id == brandId)
                     && (modelId == null || car.Model.Id == modelId)
                     && car.Year >= yearStart && car.Year <= yearEnd
-                    && (fuelType == null || car.Model.FuelType == fuelType))
+                    && (fuelType == null || car.Model.FuelType == fuelType)
+                    && (status == null || car.Status == status))
                 .OrderBy(car => car.Id)
                 .ToList();
         }
@@ -51,6 +52,8 @@ namespace CarDealer.Persistence
         public void RemoveOperation(Car car, Operation task)
         {
             _db.Operatrions.Remove(task);
+            car.Tasks.Remove(task);
+            car.Status = car.Tasks.Where(t => t.Amount > 0).Count() > 0 ? CarStatus.Sold : CarStatus.OnSale;
             _db.SaveChanges();
         }
 
@@ -58,6 +61,9 @@ namespace CarDealer.Persistence
         {
             _db.Operatrions.Add(task);
             car.Tasks.Add(task);
+
+            car.Status = car.Tasks.Where(t => t.Amount > 0).Count() > 0 ? CarStatus.Sold : CarStatus.OnSale;
+
             _db.SaveChanges();
         }
     }

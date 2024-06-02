@@ -104,15 +104,15 @@ namespace CarDealer.Presentation
 
         private void addOperationBtn_Click(object sender, EventArgs e)
         {
-            addOperatrion(false);
+            addOperation(false);
         }
 
         private void sellBtn_Click(object sender, EventArgs e)
         {
-            addOperatrion(true);
+            addOperation(true);
         }
 
-        private void addOperatrion(bool positiveAmount)
+        private void addOperation(bool positiveAmount)
         {
             var editDialog = new EditOperationForm(positiveAmount);
             var dialogResult = editDialog.ShowDialog();
@@ -127,6 +127,16 @@ namespace CarDealer.Presentation
         }
         private void refreshBalance()
         {
+            statusValueText.Text = _car.Status.ToString();
+            if (_car.Status == CarStatus.OnSale)
+            {
+                statusValueText.ForeColor = Color.Orange;
+            }
+            else
+            {
+                statusValueText.ForeColor = Color.Green;
+            }
+
             var balance = _car.Balance;
             balanceValue.Text = balance.ToString() + "$";
 

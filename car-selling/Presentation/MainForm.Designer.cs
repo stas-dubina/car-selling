@@ -51,6 +51,8 @@
             toolStripMenuItem1 = new ToolStripMenuItem();
             balanceLabel = new Label();
             balanceValue = new Label();
+            label2 = new Label();
+            statusSearchBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)resultGridView).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)yearEndSearchBox).BeginInit();
@@ -65,18 +67,21 @@
             resultGridView.AllowUserToResizeRows = false;
             resultGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             resultGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resultGridView.Location = new Point(0, 214);
+            resultGridView.Location = new Point(0, 241);
             resultGridView.MultiSelect = false;
             resultGridView.Name = "resultGridView";
             resultGridView.ReadOnly = true;
             resultGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            resultGridView.Size = new Size(964, 351);
+            resultGridView.Size = new Size(964, 447);
             resultGridView.TabIndex = 0;
             resultGridView.CellDoubleClick += resultGridView_CellDoubleClick;
+            resultGridView.CellFormatting += resultGridView_CellFormatting;
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(statusSearchBox);
             panel1.Controls.Add(brandSearchBox);
             panel1.Controls.Add(modelSearchBox);
             panel1.Controls.Add(label1);
@@ -89,7 +94,7 @@
             panel1.Controls.Add(searchBtn);
             panel1.Location = new Point(12, 28);
             panel1.Name = "panel1";
-            panel1.Size = new Size(388, 161);
+            panel1.Size = new Size(355, 200);
             panel1.TabIndex = 1;
             // 
             // brandSearchBox
@@ -121,7 +126,7 @@
             // fuelLabel
             // 
             fuelLabel.AutoSize = true;
-            fuelLabel.Location = new Point(39, 99);
+            fuelLabel.Location = new Point(39, 101);
             fuelLabel.Name = "fuelLabel";
             fuelLabel.Size = new Size(49, 15);
             fuelLabel.TabIndex = 7;
@@ -130,7 +135,7 @@
             // fuelTypeSearchBox
             // 
             fuelTypeSearchBox.FormattingEnabled = true;
-            fuelTypeSearchBox.Location = new Point(102, 96);
+            fuelTypeSearchBox.Location = new Point(102, 98);
             fuelTypeSearchBox.Name = "fuelTypeSearchBox";
             fuelTypeSearchBox.Size = new Size(200, 23);
             fuelTypeSearchBox.TabIndex = 6;
@@ -175,7 +180,7 @@
             // 
             // searchBtn
             // 
-            searchBtn.Location = new Point(227, 125);
+            searchBtn.Location = new Point(228, 165);
             searchBtn.Name = "searchBtn";
             searchBtn.Size = new Size(75, 23);
             searchBtn.TabIndex = 1;
@@ -185,7 +190,7 @@
             // 
             // addBtn
             // 
-            addBtn.Location = new Point(424, 154);
+            addBtn.Location = new Point(424, 149);
             addBtn.Name = "addBtn";
             addBtn.Size = new Size(184, 35);
             addBtn.TabIndex = 2;
@@ -203,14 +208,14 @@
             // menuItemBrands
             // 
             menuItemBrands.Name = "menuItemBrands";
-            menuItemBrands.Size = new Size(180, 22);
+            menuItemBrands.Size = new Size(114, 22);
             menuItemBrands.Text = "Бренди";
             menuItemBrands.Click += menuItemBrands_Click;
             // 
             // menuItemModels
             // 
             menuItemModels.Name = "menuItemModels";
-            menuItemModels.Size = new Size(180, 22);
+            menuItemModels.Size = new Size(114, 22);
             menuItemModels.Text = "Моделі";
             menuItemModels.Click += menuItemModels_Click;
             // 
@@ -225,14 +230,14 @@
             // 
             menuItemHelp.Name = "menuItemHelp";
             menuItemHelp.ShortcutKeys = Keys.F1;
-            menuItemHelp.Size = new Size(180, 22);
+            menuItemHelp.Size = new Size(149, 22);
             menuItemHelp.Text = "Допомога";
             menuItemHelp.Click += menuItemHelp_Click;
             // 
             // menuItemAbout
             // 
             menuItemAbout.Name = "menuItemAbout";
-            menuItemAbout.Size = new Size(180, 22);
+            menuItemAbout.Size = new Size(149, 22);
             menuItemAbout.Text = "Про нас";
             menuItemAbout.Click += menuItemAbout_Click;
             // 
@@ -271,11 +276,29 @@
             balanceValue.TabIndex = 6;
             balanceValue.Text = "10000$";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(45, 132);
+            label2.Name = "label2";
+            label2.Size = new Size(43, 15);
+            label2.TabIndex = 13;
+            label2.Text = "Статус";
+            // 
+            // statusSearchBox
+            // 
+            statusSearchBox.FormattingEnabled = true;
+            statusSearchBox.Location = new Point(103, 129);
+            statusSearchBox.Name = "statusSearchBox";
+            statusSearchBox.Size = new Size(200, 23);
+            statusSearchBox.TabIndex = 12;
+            statusSearchBox.SelectedIndexChanged += statusComboBox_SelectedIndexChanged;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(964, 565);
+            ClientSize = new Size(964, 688);
             Controls.Add(balanceValue);
             Controls.Add(balanceLabel);
             Controls.Add(addBtn);
@@ -321,5 +344,7 @@
         private ToolStripMenuItem menuItemModels;
         private Label balanceLabel;
         private Label balanceValue;
+        private Label label2;
+        private ComboBox statusSearchBox;
     }
 }

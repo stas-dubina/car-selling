@@ -43,6 +43,9 @@ namespace CarDealer.Presentation
             resultGridView.Columns.Add("Balance", "Баланс");
             resultGridView.Columns[7].DataPropertyName = "Balance";
 
+            resultGridView.Columns.Add("Status", "Статус");
+            resultGridView.Columns[8].DataPropertyName = "Status";
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -63,6 +66,14 @@ namespace CarDealer.Presentation
 
             brandSearchBox.DataSource = brands;
             brandSearchBox.DisplayMember = "Name";
+
+            var status = new List<string>()
+            {
+                "All"
+            };
+            status.AddRange(Enum.GetNames(typeof(CarStatus)));
+
+            statusSearchBox.DataSource = status;
 
             refreshResultGridView();
             refreshBalance();
@@ -110,8 +121,9 @@ namespace CarDealer.Presentation
             var fuelType = fuelTypeSearchBox.SelectedIndex == 0 ? null : (FuelType?)Enum.Parse(typeof(FuelType), (string)fuelTypeSearchBox.SelectedItem);
             var brand = brandSearchBox.SelectedIndex == 0 ? null : (Brand)brandSearchBox.SelectedItem;
             var model = modelSearchBox.SelectedIndex == 0 ? null : (Model)modelSearchBox.SelectedItem;
+            var status = statusSearchBox.SelectedIndex == 0 ? null : (CarStatus?)Enum.Parse(typeof(CarStatus), (string)statusSearchBox.SelectedItem);
 
-            var filteredResult = this._carRepository.Search(brand?.Id, model?.Id, (int)yearStartSearchBox.Value, (int)yearEndSearchBox.Value, fuelType)
+            var filteredResult = this._carRepository.Search(brand?.Id, model?.Id, (int)yearStartSearchBox.Value, (int)yearEndSearchBox.Value, fuelType, status)
                 .Select(car => new CarView(car))
                 .ToList();
 
@@ -163,6 +175,27 @@ namespace CarDealer.Presentation
 
             refreshResultGridView();
             refreshBalance();
+        }
+
+        private void resultGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (resultGridView.Columns[e.ColumnIndex].Name == "Status")
+            {
+                if ((CarStatus)e.Value == CarStatus.OnSale)
+                {
+                    e.CellStyle.BackColor = Color.Orange;
+                }
+                else
+                {
+                    e.CellStyle.BackColor = Color.Green;
+                    e.CellStyle.ForeColor = Color.White;
+                }
+            }
+        }
+
+        private void statusComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

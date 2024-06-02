@@ -86,23 +86,23 @@ namespace CarDealer
                 GearType = GearType.Automatic
             };
 
-            carRepository.Add(new Car(1, modelCorolla16, 2016, "", new List<Operation>()
+            carRepository.Add(new Car(1, modelCorolla16, 2016, "", CarStatus.OnSale, new List<Operation>()
                 {
                     new Operation(DateTime.Now, "Покупка авто", -15_000),
                     new Operation(DateTime.Now, "Замiна прокладки ГБЦ", -300)
                 }));
 
-            carRepository.Add(new Car(2, modelI3, 2015, "", new List<Operation>()
+            carRepository.Add(new Car(2, modelI3, 2015, "", CarStatus.OnSale, new List<Operation>()
                 {
                     new Operation(DateTime.Now, "Покупка авто", -15_000)
                 }));
 
-            carRepository.Add(new Car(3, modelCamry, 2016, "", new List<Operation>()
+            carRepository.Add(new Car(3, modelCamry, 2016, "", CarStatus.OnSale, new List<Operation>()
                 {
                     new Operation(DateTime.Now, "Покупка авто", -30_000)
                 }));
 
-            carRepository.Add(new Car(4, modelCorolla133, 2017, "", new List<Operation>()
+            carRepository.Add(new Car(4, modelCorolla133, 2017, "", CarStatus.OnSale, new List<Operation>()
                 {
                     new Operation(DateTime.Now, "Покупка авто", -16_000)
                 }));

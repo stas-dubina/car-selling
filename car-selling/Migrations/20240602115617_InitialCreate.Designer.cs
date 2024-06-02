@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarDealer.Migrations
 {
     [DbContext(typeof(StorageDbContext))]
-    [Migration("20240602110910_InitialCreate")]
+    [Migration("20240602115617_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -46,6 +46,9 @@ namespace CarDealer.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("ModelId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Status")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Year")

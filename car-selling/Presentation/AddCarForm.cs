@@ -52,6 +52,7 @@ namespace CarDealer.Presentation
                 Model = selectedModel!,
                 Year = (int)yearBox.Value,
                 Description = "",
+                Status = CarStatus.OnSale,
                 Tasks = new List<Operation>()
                 {
                     new Operation()

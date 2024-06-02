@@ -42,6 +42,7 @@
             sellBtn = new Button();
             balanceValue = new Label();
             balanceLabel = new Label();
+            statusValueText = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)yearTextBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)operationsGridView).BeginInit();
@@ -196,11 +197,22 @@
             balanceLabel.TabIndex = 12;
             balanceLabel.Text = "Баланс";
             // 
+            // statusValueText
+            // 
+            statusValueText.AutoSize = true;
+            statusValueText.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            statusValueText.Location = new Point(693, 12);
+            statusValueText.Name = "statusValueText";
+            statusValueText.Size = new Size(95, 37);
+            statusValueText.TabIndex = 15;
+            statusValueText.Text = "Статус";
+            // 
             // CarDetailsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(statusValueText);
             Controls.Add(balanceValue);
             Controls.Add(balanceLabel);
             Controls.Add(sellBtn);
@@ -235,5 +247,6 @@
         private Button sellBtn;
         private Label balanceValue;
         private Label balanceLabel;
+        private Label statusValueText;
     }
 }

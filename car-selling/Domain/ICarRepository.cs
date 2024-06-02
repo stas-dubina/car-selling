@@ -1,4 +1,6 @@
-﻿namespace CarDealer.Domain
+﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
+namespace CarDealer.Domain
 {
     public interface ICarRepository
     {
@@ -7,7 +9,7 @@
         void RemoveOperation(Car car, Operation task);
         void AddOperation(Car car, Operation task);
         List<Car> GetAll();
-        List<Car> Search(int? brandId, int? modelId, int yearStart, int yearEnd, FuelType? type);
+        List<Car> Search(int? brandId, int? modelId, int yearStart, int yearEnd, FuelType? type, CarStatus? status);
         int GetBalance();
     }
 }

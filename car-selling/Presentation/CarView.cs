@@ -24,6 +24,7 @@ namespace CarDealer.Presentation
         public string Description { get { return _car.Description; } }
         public List<Operation> Tasks { get { return _car.Tasks; } }
         public int Balance { get { return _car.Balance; } }
+        public CarStatus Status { get { return _car.Status; } }
 
         public Car GetCar()
         {
