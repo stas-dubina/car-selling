@@ -68,7 +68,7 @@
             idTextBox.Location = new Point(70, 7);
             idTextBox.Name = "idTextBox";
             idTextBox.ReadOnly = true;
-            idTextBox.Size = new Size(90, 23);
+            idTextBox.Size = new Size(200, 23);
             idTextBox.TabIndex = 9;
             // 
             // idLabel
@@ -133,7 +133,7 @@
             nameTextBox.Name = "nameTextBox";
             nameTextBox.PlaceholderText = "Type text";
             nameTextBox.ReadOnly = true;
-            nameTextBox.Size = new Size(90, 23);
+            nameTextBox.Size = new Size(200, 23);
             nameTextBox.TabIndex = 0;
             // 
             // operationsGridView
@@ -207,6 +207,7 @@
             Controls.Add(addOperationBtn);
             Controls.Add(operationsGridView);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "CarDetailsForm";
             Text = "Автомобіль";
             Load += CarDetailsForm_Load;

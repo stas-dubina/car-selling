@@ -144,7 +144,9 @@
             Controls.Add(amountlLabel);
             Controls.Add(descriptionLabel);
             Controls.Add(timestampLabel);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "EditOperationForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Редагування";
             ((System.ComponentModel.ISupportInitialize)amountTextBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();

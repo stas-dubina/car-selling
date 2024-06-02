@@ -26,11 +26,27 @@ namespace CarDealer.Presentation
             // init form
             InitializeComponent();
             this.idTextBox.Text = car.Id.ToString();
-            this.nameTextBox.Text = car.Model.Brand + " " + car.Model.Name;
+            this.nameTextBox.Text = car.Model.Brand.Name + " " + car.Model.Name;
             this.yearTextBox.Text = car.Year.ToString();
 
             this.fuelTypeComboBox.DataSource = Enum.GetNames(typeof(FuelType));
             this.fuelTypeComboBox.SelectedIndex = (int)car.Model.FuelType;
+
+            operationsGridView.AutoGenerateColumns = false;
+
+            operationsGridView.Columns.Add("Id", "#");
+            operationsGridView.Columns[0].DataPropertyName = "Id";
+
+            operationsGridView.Columns.Add("Timestamp", "Час");
+            operationsGridView.Columns[1].DataPropertyName = "Timestamp";
+
+            operationsGridView.Columns.Add("Description", "Опис");
+            operationsGridView.Columns[2].DataPropertyName = "Description";
+
+            operationsGridView.Columns.Add("Amount", "Ціна");
+            operationsGridView.Columns[3].DataPropertyName = "Amount";
+
+            operationsGridView.Columns.Add(createDeleteBtnColumn());
 
             refreshBalance();
             updateOperationGridView();
@@ -44,19 +60,21 @@ namespace CarDealer.Presentation
 
         private void updateOperationGridView()
         {
-            operationsGridView.DataSource = null;
-            operationsGridView.Columns.Clear();
+            operationsGridView.SuspendLayout();
 
+            operationsGridView.DataSource = null;
             operationsGridView.DataSource = this._car.Tasks;
-            operationsGridView.Columns.Add(createDeleteBtnColumn());
+            
+            operationsGridView.ResumeLayout();
+            operationsGridView.Refresh();
         }
 
         private DataGridViewButtonColumn createDeleteBtnColumn()
         {
             var deleteButton = new DataGridViewButtonColumn();
             deleteButton.Name = DELETE_COLUMN_NAME;
-            deleteButton.HeaderText = "Delete";
-            deleteButton.Text = "Delete";
+            deleteButton.HeaderText = "Дія";
+            deleteButton.Text = "Видалити";
             deleteButton.UseColumnTextForButtonValue = true;
             return deleteButton;
         }
@@ -70,11 +88,17 @@ namespace CarDealer.Presentation
 
             if (e.ColumnIndex == operationsGridView.Columns[DELETE_COLUMN_NAME].Index)
             {
-                var task = _car.Tasks[e.RowIndex];
-                _carRepository.RemoveOperation(_car, task);
+                var confirmResult = MessageBox.Show("Ви впевнені, що хочете видалити операцію?",
+                                     "Підтвердіть видалення!!",
+                                     MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    var task = _car.Tasks[e.RowIndex];
+                    _carRepository.RemoveOperation(_car, task);
 
-                refreshBalance();
-                updateOperationGridView();
+                    refreshBalance();
+                    updateOperationGridView();
+                }
             }
         }
 
