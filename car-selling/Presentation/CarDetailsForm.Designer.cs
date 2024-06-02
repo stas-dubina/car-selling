@@ -36,7 +36,6 @@
             yearLabel = new Label();
             nameLabel = new Label();
             yearTextBox = new NumericUpDown();
-            updateBtn = new Button();
             nameTextBox = new TextBox();
             operationsGridView = new DataGridView();
             addOperationBtn = new Button();
@@ -58,7 +57,6 @@
             panel1.Controls.Add(yearLabel);
             panel1.Controls.Add(nameLabel);
             panel1.Controls.Add(yearTextBox);
-            panel1.Controls.Add(updateBtn);
             panel1.Controls.Add(nameTextBox);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
@@ -78,18 +76,18 @@
             idLabel.AutoSize = true;
             idLabel.Location = new Point(37, 10);
             idLabel.Name = "idLabel";
-            idLabel.Size = new Size(18, 15);
+            idLabel.Size = new Size(14, 15);
             idLabel.TabIndex = 8;
-            idLabel.Text = "ID";
+            idLabel.Text = "#";
             // 
             // fuelLabel
             // 
             fuelLabel.AutoSize = true;
-            fuelLabel.Location = new Point(26, 106);
+            fuelLabel.Location = new Point(15, 106);
             fuelLabel.Name = "fuelLabel";
-            fuelLabel.Size = new Size(29, 15);
+            fuelLabel.Size = new Size(49, 15);
             fuelLabel.TabIndex = 7;
-            fuelLabel.Text = "Fuel";
+            fuelLabel.Text = "Паливо";
             // 
             // fuelTypeComboBox
             // 
@@ -103,20 +101,20 @@
             // yearLabel
             // 
             yearLabel.AutoSize = true;
-            yearLabel.Location = new Point(26, 76);
+            yearLabel.Location = new Point(32, 76);
             yearLabel.Name = "yearLabel";
-            yearLabel.Size = new Size(29, 15);
+            yearLabel.Size = new Size(23, 15);
             yearLabel.TabIndex = 5;
-            yearLabel.Text = "Year";
+            yearLabel.Text = "Рік";
             // 
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new Point(26, 39);
+            nameLabel.Location = new Point(14, 39);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new Size(39, 15);
+            nameLabel.Size = new Size(50, 15);
             nameLabel.TabIndex = 4;
-            nameLabel.Text = "Name";
+            nameLabel.Text = "Модель";
             // 
             // yearTextBox
             // 
@@ -128,15 +126,6 @@
             yearTextBox.Size = new Size(90, 23);
             yearTextBox.TabIndex = 2;
             yearTextBox.Value = new decimal(new int[] { 1970, 0, 0, 0 });
-            // 
-            // updateBtn
-            // 
-            updateBtn.Location = new Point(195, 144);
-            updateBtn.Name = "updateBtn";
-            updateBtn.Size = new Size(75, 23);
-            updateBtn.TabIndex = 1;
-            updateBtn.Text = "Update";
-            updateBtn.UseVisualStyleBackColor = true;
             // 
             // nameTextBox
             // 
@@ -169,7 +158,7 @@
             addOperationBtn.Name = "addOperationBtn";
             addOperationBtn.Size = new Size(103, 40);
             addOperationBtn.TabIndex = 10;
-            addOperationBtn.Text = " Add Сosts";
+            addOperationBtn.Text = "Витрати";
             addOperationBtn.UseVisualStyleBackColor = false;
             addOperationBtn.Click += addOperationBtn_Click;
             // 
@@ -182,7 +171,7 @@
             sellBtn.Name = "sellBtn";
             sellBtn.Size = new Size(103, 40);
             sellBtn.TabIndex = 11;
-            sellBtn.Text = "Sell Car";
+            sellBtn.Text = "Продано";
             sellBtn.UseVisualStyleBackColor = false;
             sellBtn.Click += sellBtn_Click;
             // 
@@ -203,9 +192,9 @@
             balanceLabel.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             balanceLabel.Location = new Point(342, 12);
             balanceLabel.Name = "balanceLabel";
-            balanceLabel.Size = new Size(108, 37);
+            balanceLabel.Size = new Size(102, 37);
             balanceLabel.TabIndex = 12;
-            balanceLabel.Text = "Balance";
+            balanceLabel.Text = "Баланс";
             // 
             // CarDetailsForm
             // 
@@ -219,7 +208,7 @@
             Controls.Add(operationsGridView);
             Controls.Add(panel1);
             Name = "CarDetailsForm";
-            Text = "Car Info";
+            Text = "Автомобіль";
             Load += CarDetailsForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -237,7 +226,6 @@
         private Label yearLabel;
         private Label nameLabel;
         private NumericUpDown yearTextBox;
-        private Button updateBtn;
         private TextBox nameTextBox;
         private Label idLabel;
         private TextBox idTextBox;

@@ -58,36 +58,36 @@
             editBtn.Name = "editBtn";
             editBtn.Size = new Size(75, 23);
             editBtn.TabIndex = 3;
-            editBtn.Text = "Save";
+            editBtn.Text = "Зберегти";
             editBtn.UseVisualStyleBackColor = true;
             editBtn.Click += editBtn_Click;
             // 
             // descriptionLabel
             // 
             descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new Point(30, 76);
+            descriptionLabel.Location = new Point(57, 76);
             descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new Size(67, 15);
+            descriptionLabel.Size = new Size(36, 15);
             descriptionLabel.TabIndex = 4;
-            descriptionLabel.Text = "Description";
+            descriptionLabel.Text = "Опис";
             // 
             // timestampLabel
             // 
             timestampLabel.AutoSize = true;
-            timestampLabel.Location = new Point(31, 37);
+            timestampLabel.Location = new Point(61, 37);
             timestampLabel.Name = "timestampLabel";
-            timestampLabel.Size = new Size(66, 15);
+            timestampLabel.Size = new Size(27, 15);
             timestampLabel.TabIndex = 5;
-            timestampLabel.Text = "Timestamp";
+            timestampLabel.Text = "Час";
             // 
             // amountlLabel
             // 
             amountlLabel.AutoSize = true;
-            amountlLabel.Location = new Point(46, 112);
+            amountlLabel.Location = new Point(61, 112);
             amountlLabel.Name = "amountlLabel";
-            amountlLabel.Size = new Size(51, 15);
+            amountlLabel.Size = new Size(32, 15);
             amountlLabel.TabIndex = 7;
-            amountlLabel.Text = "Amount";
+            amountlLabel.Text = "Ціна";
             // 
             // datePicker
             // 
@@ -112,7 +112,7 @@
             cancelBtn.Name = "cancelBtn";
             cancelBtn.Size = new Size(75, 23);
             cancelBtn.TabIndex = 4;
-            cancelBtn.Text = "Cancel";
+            cancelBtn.Text = "Скасувати";
             cancelBtn.UseVisualStyleBackColor = true;
             cancelBtn.Click += cancelBtn_Click;
             // 
@@ -145,7 +145,7 @@
             Controls.Add(descriptionLabel);
             Controls.Add(timestampLabel);
             Name = "EditOperationForm";
-            Text = "Edit";
+            Text = "Редагування";
             ((System.ComponentModel.ISupportInitialize)amountTextBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);

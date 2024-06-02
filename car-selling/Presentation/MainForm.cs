@@ -16,6 +16,33 @@ namespace CarDealer.Presentation
             this._brandRepository = brandRepository;
             this._modelRepository = modelRepository;
             InitializeComponent();
+
+            resultGridView.AutoGenerateColumns = false;
+
+            resultGridView.Columns.Add("Id", "#");
+            resultGridView.Columns[0].DataPropertyName = "Id";
+
+            resultGridView.Columns.Add("Brand", "Бренд");
+            resultGridView.Columns[1].DataPropertyName = "Brand";
+
+            resultGridView.Columns.Add("Model", "Модель");
+            resultGridView.Columns[2].DataPropertyName = "Model";
+
+            resultGridView.Columns.Add("FuelType", "Паливо");
+            resultGridView.Columns[3].DataPropertyName = "FuelType";
+
+            resultGridView.Columns.Add("Power", "Потужнiсть");
+            resultGridView.Columns[4].DataPropertyName = "Power";
+
+            resultGridView.Columns.Add("GearType", "КПП");
+            resultGridView.Columns[5].DataPropertyName = "GearType";
+
+            resultGridView.Columns.Add("Year", "Рік");
+            resultGridView.Columns[6].DataPropertyName = "Year";
+
+            resultGridView.Columns.Add("Balance", "Баланс");
+            resultGridView.Columns[7].DataPropertyName = "Balance";
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)

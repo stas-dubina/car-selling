@@ -76,9 +76,9 @@
             priceLabel.AutoSize = true;
             priceLabel.Location = new Point(58, 128);
             priceLabel.Name = "priceLabel";
-            priceLabel.Size = new Size(33, 15);
+            priceLabel.Size = new Size(32, 15);
             priceLabel.TabIndex = 13;
-            priceLabel.Text = "Price";
+            priceLabel.Text = "Ціна";
             // 
             // brandBox
             // 
@@ -100,20 +100,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(58, 38);
+            label1.Location = new Point(47, 38);
             label1.Name = "label1";
-            label1.Size = new Size(41, 15);
+            label1.Size = new Size(50, 15);
             label1.TabIndex = 9;
-            label1.Text = "Model";
+            label1.Text = "Модель";
             // 
             // fuelLabel
             // 
             fuelLabel.AutoSize = true;
-            fuelLabel.Location = new Point(58, 99);
+            fuelLabel.Location = new Point(27, 99);
             fuelLabel.Name = "fuelLabel";
-            fuelLabel.Size = new Size(29, 15);
+            fuelLabel.Size = new Size(69, 15);
             fuelLabel.TabIndex = 7;
-            fuelLabel.Text = "Fuel";
+            fuelLabel.Text = "Тип палива";
             // 
             // fuelTypeBox
             // 
@@ -126,20 +126,20 @@
             // yearLabel
             // 
             yearLabel.AutoSize = true;
-            yearLabel.Location = new Point(58, 69);
+            yearLabel.Location = new Point(27, 69);
             yearLabel.Name = "yearLabel";
-            yearLabel.Size = new Size(29, 15);
+            yearLabel.Size = new Size(70, 15);
             yearLabel.TabIndex = 5;
-            yearLabel.Text = "Year";
+            yearLabel.Text = "Рік випуску";
             // 
             // nameLabel
             // 
             nameLabel.AutoSize = true;
             nameLabel.Location = new Point(58, 9);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new Size(38, 15);
+            nameLabel.Size = new Size(40, 15);
             nameLabel.TabIndex = 4;
-            nameLabel.Text = "Brand";
+            nameLabel.Text = "Бренд";
             // 
             // yearBox
             // 
@@ -157,7 +157,7 @@
             addBtn.Name = "addBtn";
             addBtn.Size = new Size(75, 23);
             addBtn.TabIndex = 1;
-            addBtn.Text = "Add";
+            addBtn.Text = "Додати";
             addBtn.UseVisualStyleBackColor = true;
             addBtn.Click += addBtn_Click;
             // 
@@ -172,7 +172,7 @@
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "AddCarForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Add Car";
+            Text = "Додати автомобіль";
             Load += AddCarForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

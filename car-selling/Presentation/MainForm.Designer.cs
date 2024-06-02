@@ -112,20 +112,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(58, 38);
+            label1.Location = new Point(38, 38);
             label1.Name = "label1";
-            label1.Size = new Size(41, 15);
+            label1.Size = new Size(50, 15);
             label1.TabIndex = 9;
-            label1.Text = "Model";
+            label1.Text = "Модель";
             // 
             // fuelLabel
             // 
             fuelLabel.AutoSize = true;
-            fuelLabel.Location = new Point(58, 99);
+            fuelLabel.Location = new Point(39, 99);
             fuelLabel.Name = "fuelLabel";
-            fuelLabel.Size = new Size(29, 15);
+            fuelLabel.Size = new Size(49, 15);
             fuelLabel.TabIndex = 7;
-            fuelLabel.Text = "Fuel";
+            fuelLabel.Text = "Паливо";
             // 
             // fuelTypeSearchBox
             // 
@@ -138,20 +138,20 @@
             // yearLabel
             // 
             yearLabel.AutoSize = true;
-            yearLabel.Location = new Point(58, 69);
+            yearLabel.Location = new Point(65, 69);
             yearLabel.Name = "yearLabel";
-            yearLabel.Size = new Size(29, 15);
+            yearLabel.Size = new Size(23, 15);
             yearLabel.TabIndex = 5;
-            yearLabel.Text = "Year";
+            yearLabel.Text = "Рік";
             // 
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new Point(58, 9);
+            nameLabel.Location = new Point(48, 9);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new Size(38, 15);
+            nameLabel.Size = new Size(40, 15);
             nameLabel.TabIndex = 4;
-            nameLabel.Text = "Brand";
+            nameLabel.Text = "Бренд";
             // 
             // yearEndSearchBox
             // 
@@ -179,7 +179,7 @@
             searchBtn.Name = "searchBtn";
             searchBtn.Size = new Size(75, 23);
             searchBtn.TabIndex = 1;
-            searchBtn.Text = "Search";
+            searchBtn.Text = "Пошук";
             searchBtn.UseVisualStyleBackColor = true;
             searchBtn.Click += searchBtn_Click;
             // 
@@ -189,7 +189,7 @@
             addBtn.Name = "addBtn";
             addBtn.Size = new Size(184, 35);
             addBtn.TabIndex = 2;
-            addBtn.Text = "Add Car";
+            addBtn.Text = "Додати авто";
             addBtn.UseVisualStyleBackColor = true;
             addBtn.Click += addBtn_Click;
             // 
@@ -197,43 +197,43 @@
             // 
             menuBarManager.DropDownItems.AddRange(new ToolStripItem[] { menuItemBrands, menuItemModels });
             menuBarManager.Name = "menuBarManager";
-            menuBarManager.Size = new Size(66, 20);
-            menuBarManager.Text = "Manager";
+            menuBarManager.Size = new Size(101, 20);
+            menuBarManager.Text = "Налаштування";
             // 
             // menuItemBrands
             // 
             menuItemBrands.Name = "menuItemBrands";
-            menuItemBrands.Size = new Size(113, 22);
-            menuItemBrands.Text = "Brands";
+            menuItemBrands.Size = new Size(180, 22);
+            menuItemBrands.Text = "Бренди";
             menuItemBrands.Click += menuItemBrands_Click;
             // 
             // menuItemModels
             // 
             menuItemModels.Name = "menuItemModels";
-            menuItemModels.Size = new Size(113, 22);
-            menuItemModels.Text = "Models";
+            menuItemModels.Size = new Size(180, 22);
+            menuItemModels.Text = "Моделі";
             menuItemModels.Click += menuItemModels_Click;
             // 
             // menuBarHelp
             // 
             menuBarHelp.DropDownItems.AddRange(new ToolStripItem[] { menuItemHelp, menuItemAbout });
             menuBarHelp.Name = "menuBarHelp";
-            menuBarHelp.Size = new Size(44, 20);
-            menuBarHelp.Text = "Help";
+            menuBarHelp.Size = new Size(75, 20);
+            menuBarHelp.Text = "Допомога";
             // 
             // menuItemHelp
             // 
             menuItemHelp.Name = "menuItemHelp";
             menuItemHelp.ShortcutKeys = Keys.F1;
-            menuItemHelp.Size = new Size(146, 22);
-            menuItemHelp.Text = "View Help";
+            menuItemHelp.Size = new Size(180, 22);
+            menuItemHelp.Text = "Допомога";
             menuItemHelp.Click += menuItemHelp_Click;
             // 
             // menuItemAbout
             // 
             menuItemAbout.Name = "menuItemAbout";
-            menuItemAbout.Size = new Size(146, 22);
-            menuItemAbout.Text = "About";
+            menuItemAbout.Size = new Size(180, 22);
+            menuItemAbout.Text = "Про нас";
             menuItemAbout.Click += menuItemAbout_Click;
             // 
             // menuStrip2
@@ -256,9 +256,9 @@
             balanceLabel.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             balanceLabel.Location = new Point(424, 28);
             balanceLabel.Name = "balanceLabel";
-            balanceLabel.Size = new Size(108, 37);
+            balanceLabel.Size = new Size(102, 37);
             balanceLabel.TabIndex = 5;
-            balanceLabel.Text = "Balance";
+            balanceLabel.Text = "Баланс";
             // 
             // balanceValue
             // 
@@ -283,7 +283,7 @@
             Controls.Add(resultGridView);
             Controls.Add(menuStrip2);
             Name = "MainForm";
-            Text = "My Car Dealer";
+            Text = "Дилерський центр";
             Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)resultGridView).EndInit();
             panel1.ResumeLayout(false);
