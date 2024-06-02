@@ -11,5 +11,7 @@ namespace CarDealer.Domain
         List<Model> GetAll();
 
         List<Model> GetAllByBrand(int brandId);
+
+        void Add(Model model);
     }
 }

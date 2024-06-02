@@ -19,5 +19,11 @@ namespace CarDealer.Persistence
         {
             return _db.Models.Where(model => model.Brand.Id == brandId).ToList();
         }
+
+        public void Add(Model model)
+        {
+            _db.Models.Add(model);
+            _db.SaveChanges();
+        }
     }
 }

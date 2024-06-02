@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarDealer.Migrations
 {
     [DbContext(typeof(StorageDbContext))]
-    [Migration("20240602115617_InitialCreate")]
+    [Migration("20240602133815_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
