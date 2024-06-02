@@ -28,11 +28,11 @@ namespace CarDealer.Presentation
             resultGridView.Columns.Add("Model", "Модель");
             resultGridView.Columns[2].DataPropertyName = "Model";
 
-            resultGridView.Columns.Add("FuelType", "Паливо");
-            resultGridView.Columns[3].DataPropertyName = "FuelType";
-
             resultGridView.Columns.Add("Power", "Потужнiсть");
-            resultGridView.Columns[4].DataPropertyName = "Power";
+            resultGridView.Columns[3].DataPropertyName = "Power";
+
+            resultGridView.Columns.Add("FuelType", "Паливо");
+            resultGridView.Columns[4].DataPropertyName = "FuelType";
 
             resultGridView.Columns.Add("GearType", "КПП");
             resultGridView.Columns[5].DataPropertyName = "GearType";

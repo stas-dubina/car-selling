@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarDealer.Migrations
 {
     [DbContext(typeof(StorageDbContext))]
-    [Migration("20240601205457_InitialCreate")]
+    [Migration("20240602110910_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -127,7 +127,7 @@ namespace CarDealer.Migrations
             modelBuilder.Entity("CarDealer.Domain.Model", b =>
                 {
                     b.HasOne("CarDealer.Domain.Brand", "Brand")
-                        .WithMany()
+                        .WithMany("Models")
                         .HasForeignKey("BrandId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -140,6 +140,11 @@ namespace CarDealer.Migrations
                     b.HasOne("CarDealer.Domain.Car", null)
                         .WithMany("Tasks")
                         .HasForeignKey("CarId");
+                });
+
+            modelBuilder.Entity("CarDealer.Domain.Brand", b =>
+                {
+                    b.Navigation("Models");
                 });
 
             modelBuilder.Entity("CarDealer.Domain.Car", b =>

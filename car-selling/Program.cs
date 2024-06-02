@@ -46,19 +46,29 @@ namespace CarDealer
             };
 
 
-            var modelCorolla = new Model()
+            var modelCorolla16 = new Model()
             {
                 Id = 1,
                 Brand = brandToyota,
-                Name = "Corolla",
+                Name = "Corolla 1.6",
                 Power = 100,
+                FuelType = FuelType.Gas,
+                GearType = GearType.Manual
+            };
+
+            var modelCorolla133 = new Model()
+            {
+                Id = 2,
+                Brand = brandToyota,
+                Name = "Corolla 1.33",
+                Power = 75,
                 FuelType = FuelType.Gas,
                 GearType = GearType.Manual
             };
 
             var modelCamry = new Model()
             {
-                Id = 2,
+                Id = 3,
                 Brand = brandToyota,
                 Name = "Camry",
                 Power = 181,
@@ -68,7 +78,7 @@ namespace CarDealer
 
             var modelI3 = new Model()
             {
-                Id = 3,
+                Id = 4,
                 Brand = brandBmw,
                 Name = "i3",
                 Power = 150,
@@ -76,7 +86,7 @@ namespace CarDealer
                 GearType = GearType.Automatic
             };
 
-            carRepository.Add(new Car(1, modelCorolla, 2016, "", new List<Operation>()
+            carRepository.Add(new Car(1, modelCorolla16, 2016, "", new List<Operation>()
                 {
                     new Operation(DateTime.Now, "Покупка авто", -15_000),
                     new Operation(DateTime.Now, "Замiна прокладки ГБЦ", -300)
@@ -92,7 +102,7 @@ namespace CarDealer
                     new Operation(DateTime.Now, "Покупка авто", -30_000)
                 }));
 
-            carRepository.Add(new Car(4, modelCorolla, 2017, "", new List<Operation>()
+            carRepository.Add(new Car(4, modelCorolla133, 2017, "", new List<Operation>()
                 {
                     new Operation(DateTime.Now, "Покупка авто", -16_000)
                 }));
