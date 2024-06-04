@@ -119,8 +119,8 @@ namespace CarDealer.Presentation
         private void searchBtn_Click(object sender, EventArgs e)
         {
             var fuelType = fuelTypeSearchBox.SelectedIndex == 0 ? null : (FuelType?)Enum.Parse(typeof(FuelType), (string)fuelTypeSearchBox.SelectedItem);
-            var brand = brandSearchBox.SelectedIndex == 0 ? null : (Brand)brandSearchBox.SelectedItem;
-            var model = modelSearchBox.SelectedIndex == 0 ? null : (Model)modelSearchBox.SelectedItem;
+            var brand = brandSearchBox.SelectedIndex == 0 ? null : (Brand?)brandSearchBox.SelectedItem;
+            var model = modelSearchBox.SelectedIndex == 0 ? null : (Model?)modelSearchBox.SelectedItem;
             var status = statusSearchBox.SelectedIndex == 0 ? null : (CarStatus?)Enum.Parse(typeof(CarStatus), (string)statusSearchBox.SelectedItem);
 
             var filteredResult = this._carRepository.Search(brand?.Id, model?.Id, (int)yearStartSearchBox.Value, (int)yearEndSearchBox.Value, fuelType, status)

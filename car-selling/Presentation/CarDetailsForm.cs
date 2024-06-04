@@ -52,6 +52,15 @@ namespace CarDealer.Presentation
             updateOperationGridView();
             _carRepository = carRepository;
         }
+        private DataGridViewButtonColumn createDeleteBtnColumn()
+        {
+            var deleteButton = new DataGridViewButtonColumn();
+            deleteButton.Name = DELETE_COLUMN_NAME;
+            deleteButton.HeaderText = "Дія";
+            deleteButton.Text = "Видалити";
+            deleteButton.UseColumnTextForButtonValue = true;
+            return deleteButton;
+        }
 
         private void CarDetailsForm_Load(object sender, EventArgs e)
         {
@@ -67,16 +76,6 @@ namespace CarDealer.Presentation
             
             operationsGridView.ResumeLayout();
             operationsGridView.Refresh();
-        }
-
-        private DataGridViewButtonColumn createDeleteBtnColumn()
-        {
-            var deleteButton = new DataGridViewButtonColumn();
-            deleteButton.Name = DELETE_COLUMN_NAME;
-            deleteButton.HeaderText = "Дія";
-            deleteButton.Text = "Видалити";
-            deleteButton.UseColumnTextForButtonValue = true;
-            return deleteButton;
         }
 
         private void operationsGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -125,6 +124,7 @@ namespace CarDealer.Presentation
                 updateOperationGridView();
             }
         }
+
         private void refreshBalance()
         {
             statusValueText.Text = _car.Status.ToString();

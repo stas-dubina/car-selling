@@ -13,9 +13,7 @@ namespace CarDealer.Persistence
         public DbSet<Brand> Brands { get; set; }
         public StorageDbContext()
         {
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var path = Environment.GetFolderPath(folder);
-            _dbPath = System.IO.Path.Join(path, "car-storage-1.db");
+            _dbPath = Path.Join("./car-storage.db");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)

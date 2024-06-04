@@ -18,4 +18,3 @@ public class Operation
         this.Amount = amount;
     }
 }
-

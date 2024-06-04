@@ -14,5 +14,6 @@ namespace CarDealer.Domain
         public FuelType FuelType { get; set; }
         public int Power { get; set; }
         public GearType GearType { get; set; }
+
     }
 }
